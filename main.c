@@ -5,6 +5,8 @@
 #include "displaying.h"
 #include "stackManipulation.h"
 
+
+
 int main(void)
 {
     int stack[MAX_PILE_D];
@@ -24,7 +26,7 @@ int main(void)
 
         printf("\nValeur de retour : %d\n", retVal);
         printf("\nIs ok ? : %d\n", isOk);
-        printf("Which actions you want to do ?\n\tq: Quit\n\to: Pop\n\tu: Push\n");
+        printf("Which actions you want to do ?\n\tq: Quit\n\to: Pop\n\tu: Push\n\tg :Get\n\tt: Top\n");
         scanf("%c", &action);
 
         while ((getchar()) != '\n'); 
@@ -48,6 +50,17 @@ int main(void)
             scanf("%d", &pushValue);
             while ((getchar()) != '\n'); 
             isOk = push(&pushValue, stack, &indexOfTheStack);
+
+            break;
+
+        case 'g':
+            isOk = get(stack, &indexOfTheStack, &retVal);
+
+            break;
+
+        case 't':
+            isOk = IS_OK;
+            top(stack, &indexOfTheStack, &retVal);
 
             break;
 

@@ -53,3 +53,14 @@ int get(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
         return -1;
     }
 }
+
+unsigned int top(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
+{
+    if(*indexOfTheStack > 0)
+    {
+        *retVal = stack[*indexOfTheStack-1];
+    } else 
+    {
+        *retVal = 0;
+    }
+}
