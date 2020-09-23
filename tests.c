@@ -1,93 +1,67 @@
 #include <stdio.h>
 #include <stdlib.h> 
+#include <time.h>
 
 #include "constants.h"
-#include "displaying.h"
-#include "stackManipulation.h"
 
-
+#include "testsMethods.h"
 
 int main(void)
 {
+    system("clear");
+
     int stack[MAX_PILE_D];
-    int indexOfTheStack = 0;
+    int indexOfTheStack;
 
     initStack(stack);
 
-    int isOk = IS_OK;
+    int isOk;
     int pushValue;
-    int retVal = 0;
+    int retVal;
     unsigned int action;
     unsigned int index;
-
-
-    printf("\nValeur de retour : %d\n", retVal);
-    printf("\nIs ok ? : %d\n", isOk);
-
-    retVal = 0;
 
     unsigned int numberOfMethodsToTest = 7;
 
     for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {
+        isOk = IS_OK;
+        retVal = 0;
+        indexOfTheStack = 0;
+
         switch (action)
         {
         case 0:
-            printf("\nWrite your number / operations: \n");
-            scanf("%d", &pushValue);
-            while ((getchar()) != '\n'); 
-            isOk = push(&pushValue, stack, &indexOfTheStack);
+            testPushMethod(stack, &indexOfTheStack, &isOk);
 
             break;
         case 1:
-            isOk = pop(stack, &indexOfTheStack, &retVal);
+            testPopMethod(stack, &indexOfTheStack, &isOk);
 
             break;
 
         case 2:
-            isOk = get(stack, &indexOfTheStack, &retVal);
+            testGetMethod(stack, &indexOfTheStack, &isOk);
 
             break;
 
         case 3:
-            printf("\nWrite your number / operations: \n");
-            scanf("%d", &pushValue);
-            while ((getchar()) != '\n');
-
-            printf("\nWrite the index where write the number: \n");
-            scanf("%d", &index);
-            while ((getchar()) != '\n');
-
-            isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
+            testPushNMethod(stack, &indexOfTheStack, &isOk);
 
             break;
 
         case 4:
-            printf("\nWrite the index where remove the number: \n");
-            scanf("%d", &index);
-            while ((getchar()) != '\n');
-
-            isOk = popN(stack, &indexOfTheStack, &retVal, index);
+            testPopNMethod(stack, &indexOfTheStack, &isOk);
 
             break;
 
         case 5:
-            printf("\nWrite the index where get the number: \n");
-            scanf("%d", &index);
-            while ((getchar()) != '\n');
-
-            isOk = getN(stack, &indexOfTheStack, &retVal, index);
+            testGetNMethod(stack, &indexOfTheStack, &isOk);
 
             break;
 
         case 6:
-            isOk = IS_OK;
-            top(stack, &indexOfTheStack, &retVal);
-
-            break;
-
-        case 7:
-            isOk = IS_OK;
+            testTopMethod(stack, &indexOfTheStack, &isOk);
 
             break;
 

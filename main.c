@@ -86,7 +86,7 @@ int main(void)
         
         case 't':
             isOk = IS_OK;
-            top(stack, &indexOfTheStack, &retVal);
+            top(&indexOfTheStack, &retVal);
 
             break;
 

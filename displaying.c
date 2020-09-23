@@ -4,7 +4,7 @@
 
 void display(int stack[MAX_PILE_D], int indexOfTheStack)
 {
-    system("clear");
+    // system("clear");
 
     printf("------------------------\n");
     for (int row = indexOfTheStack -1; row > -1; row--)

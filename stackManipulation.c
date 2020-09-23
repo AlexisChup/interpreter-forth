@@ -8,6 +8,11 @@ void initStack(int stack[])
     }
 }
 
+void removeAllValueFromTheStack(int *indexOfTheStack)
+{
+    *indexOfTheStack = 0;
+}
+
 int push(int *value, int stack[MAX_PILE_D], int *indexOfTheStack)
 {
     if(*indexOfTheStack < MAX_PILE_D)
@@ -34,6 +39,7 @@ int pop(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
         return 0;
     } else 
     {
+        *retVal = NULL_INT;
         printf("The Stack is empty !\n");
 
         return -1;
@@ -50,19 +56,16 @@ int get(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
     }
     else
     {
+        *retVal = NULL_INT;
+        printf("The Stack is empty !\n");
+
         return -1;
     }
 }
 
-unsigned int top(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
+unsigned int top(int *indexOfTheStack, int *retVal)
 {
-    if(*indexOfTheStack > 0)
-    {
-        *retVal = stack[*indexOfTheStack-1];
-    } else 
-    {
-        *retVal = 0;
-    }
+    *retVal = *indexOfTheStack;
 }
 
 int pushN(int *value, int stack[MAX_PILE_D], int *indexOfTheStack, unsigned int index)
@@ -100,8 +103,9 @@ int popN(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal, unsigned int 
         return 0;
     } else 
     {
+        *retVal = NULL_INT;
         printf("The Stack is empty !\n");
-
+        
         return -1;
     }
 }
@@ -116,6 +120,9 @@ int getN(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal, unsigned int 
     }
     else
     {
+        *retVal = NULL_INT;
+        printf("The Stack is empty !\n");
+        
         return -1;
     }
 }
