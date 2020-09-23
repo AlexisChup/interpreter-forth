@@ -19,6 +19,7 @@ int main(void)
     int isOk = IS_OK;
     int pushValue;
     int retVal = 0;
+    unsigned int index;
 
     while (isContinue == TRUE)
     {
@@ -26,7 +27,7 @@ int main(void)
 
         printf("\nValeur de retour : %d\n", retVal);
         printf("\nIs ok ? : %d\n", isOk);
-        printf("Which actions you want to do ?\n\tq: Quit\n\to: Pop\n\tu: Push\n\tg :Get\n\tt: Top\n");
+        printf("Which actions you want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\n\tq: Quit\n");
         scanf("%c", &action);
 
         while ((getchar()) != '\n'); 
@@ -61,6 +62,36 @@ int main(void)
         case 't':
             isOk = IS_OK;
             top(stack, &indexOfTheStack, &retVal);
+
+            break;
+
+        case 'U':
+            printf("\nWrite your number / operations: \n");
+            scanf("%d", &pushValue);
+            while ((getchar()) != '\n');
+
+            printf("\nWrite the index where write the number: \n");
+            scanf("%d", &index);
+            while ((getchar()) != '\n');
+
+            isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
+            break;
+
+        case 'O':
+            printf("\nWrite the index where remove the number: \n");
+            scanf("%d", &index);
+            while ((getchar()) != '\n');
+
+            isOk = popN(stack, &indexOfTheStack, &retVal, index);
+
+            break;
+
+        case 'G':
+            printf("\nWrite the index where get the number: \n");
+            scanf("%d", &index);
+            while ((getchar()) != '\n');
+
+            isOk = getN(stack, &indexOfTheStack, &retVal, index);
 
             break;
 
