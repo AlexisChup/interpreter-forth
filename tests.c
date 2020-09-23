@@ -14,47 +14,42 @@ int main(void)
 
     initStack(stack);
 
-    char action;
-    int isContinue = TRUE;
     int isOk = IS_OK;
     int pushValue;
     int retVal = 0;
+    unsigned int action;
     unsigned int index;
 
-    while (isContinue == TRUE)
+
+    printf("\nValeur de retour : %d\n", retVal);
+    printf("\nIs ok ? : %d\n", isOk);
+
+    retVal = 0;
+
+    unsigned int numberOfMethodsToTest = 7;
+
+    for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {
-        display(stack, indexOfTheStack);
-
-        printf("\nValeur de retour : %d\n", retVal);
-        printf("\nIs ok ? : %d\n", isOk);
-        printf("Which actions you want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\n\tq: Quit\n");
-        scanf("%c", &action);
-
-        while ((getchar()) != '\n'); 
-
-        retVal = 0;
-
         switch (action)
         {
-        case 'u':
+        case 0:
             printf("\nWrite your number / operations: \n");
             scanf("%d", &pushValue);
             while ((getchar()) != '\n'); 
             isOk = push(&pushValue, stack, &indexOfTheStack);
 
             break;
-
-        case 'o':
+        case 1:
             isOk = pop(stack, &indexOfTheStack, &retVal);
 
             break;
 
-        case 'g':
+        case 2:
             isOk = get(stack, &indexOfTheStack, &retVal);
 
             break;
 
-        case 'U':
+        case 3:
             printf("\nWrite your number / operations: \n");
             scanf("%d", &pushValue);
             while ((getchar()) != '\n');
@@ -64,9 +59,10 @@ int main(void)
             while ((getchar()) != '\n');
 
             isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
+
             break;
 
-        case 'O':
+        case 4:
             printf("\nWrite the index where remove the number: \n");
             scanf("%d", &index);
             while ((getchar()) != '\n');
@@ -75,7 +71,7 @@ int main(void)
 
             break;
 
-        case 'G':
+        case 5:
             printf("\nWrite the index where get the number: \n");
             scanf("%d", &index);
             while ((getchar()) != '\n');
@@ -83,15 +79,14 @@ int main(void)
             isOk = getN(stack, &indexOfTheStack, &retVal, index);
 
             break;
-        
-        case 't':
+
+        case 6:
             isOk = IS_OK;
             top(stack, &indexOfTheStack, &retVal);
 
             break;
 
-        case 'q':
-            isContinue = FALSE;
+        case 7:
             isOk = IS_OK;
 
             break;
@@ -100,6 +95,5 @@ int main(void)
             break;
         }
     }
-    
-    return 0;
 }
+    
