@@ -4,6 +4,7 @@
 #include "constants.h"
 #include "displaying.c"
 
-void display(int stack[], int indexOfTheStack);
+void display_stack(int stack[], int indexOfTheStack);
+void display_user_action();
 
 #endif

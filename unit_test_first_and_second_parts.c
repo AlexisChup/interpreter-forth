@@ -4,7 +4,7 @@
 
 #include "constants.h"
 #include "displaying.h"
-#include "stackManipulation.h"
+#include "stack_manipulation.h"
 
 void printResultOfTest(int *isOk)
 {

@@ -4,12 +4,10 @@
 
 #include "constants.h"
 
-#include "testsMethods.h"
+#include "unit_test_first_and_second_parts.h"
 
 int main(void)
 {
-    system("clear");
-
     int stack[MAX_PILE_D];
     int indexOfTheStack;
 
@@ -23,6 +21,8 @@ int main(void)
 
     unsigned int numberOfMethodsToTest = 8;
 
+    printf("-------------------------------------\n\n");
+    printf("-- FIRST AND SECOND PART UNIT TEST --\n\n");
     for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {
         isOk = IS_OK;

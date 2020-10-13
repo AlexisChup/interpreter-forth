@@ -2,7 +2,7 @@
 #define STACK_MANIPULATION_H
 
 #include "constants.h"
-#include "stackManipulation.c"
+#include "stack_manipulation.c"
 
 void initStack(int stack[]);
 

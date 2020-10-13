@@ -3,7 +3,7 @@
 
 #include "constants.h"
 #include "displaying.h"
-#include "stackManipulation.h"
+#include "stack_manipulation.h"
 
 #include "utils.h"
 
@@ -25,11 +25,12 @@ int main(void)
 
     while (isContinue == TRUE)
     {
-        display(stack, indexOfTheStack);
+        display_stack(stack, indexOfTheStack);
 
         printf("\nValeur de retour : %d\n", retVal);
         printf("\nIs ok ? : %d\n", isOk);
-        printf("Which actions you want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\t\t\t\tm: Max\n\tq: Quit\n");
+        
+        display_user_action();
         scanf("%c", &action);
 
         emptyBuffer();
