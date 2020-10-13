@@ -21,7 +21,7 @@ int main(void)
     unsigned int action;
     unsigned int index;
 
-    unsigned int numberOfMethodsToTest = 7;
+    unsigned int numberOfMethodsToTest = 8;
 
     for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {
@@ -62,6 +62,11 @@ int main(void)
 
         case 6:
             testTopMethod(stack, &indexOfTheStack, &isOk);
+
+            break;
+
+        case 7:
+            testMaxMethod(&isOk);
 
             break;
 

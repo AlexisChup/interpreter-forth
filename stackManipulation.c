@@ -63,6 +63,11 @@ int get(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
     }
 }
 
+unsigned int max(int *retVal)
+{
+    *retVal = MAX_PILE_D;
+}
+
 unsigned int top(int *indexOfTheStack, int *retVal)
 {
     *retVal = *indexOfTheStack;

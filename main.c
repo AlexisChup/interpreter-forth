@@ -5,6 +5,8 @@
 #include "displaying.h"
 #include "stackManipulation.h"
 
+#include "utils.h"
+
 
 
 int main(void)
@@ -27,10 +29,10 @@ int main(void)
 
         printf("\nValeur de retour : %d\n", retVal);
         printf("\nIs ok ? : %d\n", isOk);
-        printf("Which actions you want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\n\tq: Quit\n");
+        printf("Which actions you want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\t\t\t\tm: Max\n\tq: Quit\n");
         scanf("%c", &action);
 
-        while ((getchar()) != '\n'); 
+        emptyBuffer();
 
         retVal = 0;
 
@@ -39,7 +41,8 @@ int main(void)
         case 'u':
             printf("\nWrite your number / operations: \n");
             scanf("%d", &pushValue);
-            while ((getchar()) != '\n'); 
+            emptyBuffer();
+
             isOk = push(&pushValue, stack, &indexOfTheStack);
 
             break;
@@ -57,11 +60,11 @@ int main(void)
         case 'U':
             printf("\nWrite your number / operations: \n");
             scanf("%d", &pushValue);
-            while ((getchar()) != '\n');
+            emptyBuffer();
 
             printf("\nWrite the index where write the number: \n");
             scanf("%d", &index);
-            while ((getchar()) != '\n');
+            emptyBuffer();
 
             isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
             break;
@@ -69,7 +72,7 @@ int main(void)
         case 'O':
             printf("\nWrite the index where remove the number: \n");
             scanf("%d", &index);
-            while ((getchar()) != '\n');
+            emptyBuffer();
 
             isOk = popN(stack, &indexOfTheStack, &retVal, index);
 
@@ -78,7 +81,7 @@ int main(void)
         case 'G':
             printf("\nWrite the index where get the number: \n");
             scanf("%d", &index);
-            while ((getchar()) != '\n');
+            emptyBuffer();
 
             isOk = getN(stack, &indexOfTheStack, &retVal, index);
 
@@ -87,6 +90,12 @@ int main(void)
         case 't':
             isOk = IS_OK;
             top(&indexOfTheStack, &retVal);
+
+            break;
+        
+        case 'm':
+            isOk = IS_OK;
+            max(&retVal);
 
             break;
 

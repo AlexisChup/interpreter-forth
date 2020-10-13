@@ -66,7 +66,7 @@ void testPushMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     removeAllValueFromTheStack(indexOfTheStack);
     *isOk = IS_OK;
 
-    printf("\tTest inserting 101 numbers in stack:\n");
+    printf("\tTest inserting 101 numbers in stack when max amount of elements is 100:\n");
     insertNRandomNumberInStack(stack, 101, indexOfTheStack, isOk);
     printResultOfTest(isOk);
 }
@@ -115,6 +115,44 @@ void testGetMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 
     printf("\tTest getting the last number when stack is EMPTY:\n");
     *isOk = get(stack, indexOfTheStack, &retVal);
+    printReturnedValue(retVal);
+    printResultOfTest(isOk);
+}
+
+void testTopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+{
+    printf("-- TEST TOP METHOD --\n\n");
+
+    int retVal;
+    int numberOfElements = 10;
+
+    removeAllValueFromTheStack(indexOfTheStack);
+    insertNRandomNumberInStack(stack, numberOfElements, indexOfTheStack, isOk);
+    *isOk = IS_OK;
+
+    printf("\tTest counting numbers when there are %d in stack:\n", numberOfElements);
+    top(indexOfTheStack, &retVal);
+    printReturnedValue(retVal);
+    printResultOfTest(isOk);
+
+    removeAllValueFromTheStack(indexOfTheStack);
+    *isOk = IS_OK;
+
+    printf("\tTest counting numbers when the stack is EMPTY:\n");
+    top(indexOfTheStack, &retVal);
+    printReturnedValue(retVal);
+    printResultOfTest(isOk);  
+}
+
+void testMaxMethod(int *isOk)
+{
+    int retVal;
+
+    printf("-- TEST MAX METHOD --\n\n");
+
+    printf("Test getting the maximum amount of elements:\n");
+    max(&retVal);
+    *isOk = IS_OK;
     printReturnedValue(retVal);
     printResultOfTest(isOk);
 }
@@ -189,29 +227,4 @@ void testGetNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     *isOk = getN(stack, indexOfTheStack, &retVal, index);
     printReturnedValue(retVal);
     printResultOfTest(isOk);
-}
-
-void testTopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
-{
-    printf("-- TEST TOP METHOD --\n\n");
-
-    int retVal;
-    int numberOfElements = 10;
-
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, numberOfElements, indexOfTheStack, isOk);
-    *isOk = IS_OK;
-
-    printf("\tTest counting numbers when there are %d in stack:\n", numberOfElements);
-    top(indexOfTheStack, &retVal);
-    printReturnedValue(retVal);
-    printResultOfTest(isOk);
-
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
-
-    printf("\tTest counting numbers when the stack is EMPTY:\n");
-    top(indexOfTheStack, &retVal);
-    printReturnedValue(retVal);
-    printResultOfTest(isOk);  
 }
