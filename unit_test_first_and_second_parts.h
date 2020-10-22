@@ -1,7 +1,7 @@
 #ifndef TESTS_METHODS_H
 #define TESTS_METHODS_H
 
-#include "unit_test_first_and_second_parts.c"
+
 
 /*
     *used to make more beautiful print in terminal

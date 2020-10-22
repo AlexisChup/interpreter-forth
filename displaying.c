@@ -1,5 +1,6 @@
 #include "constants.h"
 #include "utils.h"
+#include "displaying.h"
 
 void display_stack(int stack[MAX_PILE_D], int indexOfTheStack)
 {
@@ -15,5 +16,5 @@ void display_stack(int stack[MAX_PILE_D], int indexOfTheStack)
 
 void display_user_action()
 {
-    printf("Which actions you want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\t\t\t\tm: Max\n\tq: Quit\n");
+    printf("Which actions yofefefu want to do ?\n\tu: Push\t\t\t\to: Pop\t\t\t\tg :Get\n\tU: Push with selected index\tO: Pop with selected index\tG: Get with selected index\n\tt: Top\t\t\t\tm: Max\n\tq: Quit\n");
 }

@@ -1,4 +1,5 @@
 #include "constants.h"
+#include "stack_manipulation.h"
 
 void initStack(int stack[])
 {

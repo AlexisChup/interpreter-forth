@@ -1,8 +1,6 @@
 #ifndef STACK_MANIPULATION_H
 #define STACK_MANIPULATION_H
 
-#include "constants.h"
-#include "stack_manipulation.c"
 
 void initStack(int stack[]);
 
