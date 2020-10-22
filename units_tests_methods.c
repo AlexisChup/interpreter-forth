@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h> 
 #include <time.h>
-
-#include "unit_test_first_and_second_parts.h"
-
 #include "constants.h"
-#include "displaying.h"
 #include "stack_manipulation.h"
+
+#include "units_tests_methods.h"
+
+#include "displaying.h"
 
 void printResultOfTest(int *isOk)
 {

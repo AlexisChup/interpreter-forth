@@ -4,7 +4,7 @@
 
 #include "constants.h"
 
-#include "unit_test_first_and_second_parts.h"
+#include "units_tests_methods.h"
 
 int main(void)
 {
@@ -23,6 +23,9 @@ int main(void)
 
     printf("-------------------------------------\n\n");
     printf("-- FIRST AND SECOND PART UNIT TEST --\n\n");
+    printf("\t\t✓ and ❌\n");
+    printf("MEANS THAT TEST PASSED. THEY ONLY DISPLAY THE RESULT OF THE TEST.\n");
+    printf("\n-------------------------------------\n\n");
     for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {
         isOk = IS_OK;
@@ -74,5 +77,7 @@ int main(void)
             break;
         }
     }
+
+    printf("\t\t✓✓  ALL TESTS PASSED  ✓✓\n\n");
 }
     
