@@ -8,6 +8,9 @@
 
 #include "displaying.h"
 
+long int stack[MAX_PILE_D];
+int indexOfTheStack = 0;
+
 void printResultOfTest(int *isOk)
 {
     if(*isOk == IS_OK)
@@ -31,7 +34,7 @@ void printReturnedValue(int retVal)
     
 }
 
-int insertNRandomNumberInStack(long int stack[MAX_PILE_D], unsigned int numberOfRandomNumber, int *indexOfTheStack, int *isOk)
+int insertNRandomNumberInStack(unsigned int numberOfRandomNumber, int *isOk)
 {
     int pushValue;
     int returnValueFromPush;
@@ -41,7 +44,7 @@ int insertNRandomNumberInStack(long int stack[MAX_PILE_D], unsigned int numberOf
     for (unsigned index = 0; index < numberOfRandomNumber; index++)
     {
         pushValue = rand() / 100000;      // Returns a pseudo-random integer between 0 and RAND_MAX.
-        returnValueFromPush = Push(&pushValue, stack, indexOfTheStack);
+        returnValueFromPush = Push(pushValue);
 
         newIsOk &= (returnValueFromPush == IS_OK) ? 1 : 0;
     }
@@ -54,7 +57,7 @@ int insertNRandomNumberInStack(long int stack[MAX_PILE_D], unsigned int numberOf
     }
 }
 
-void testPushMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPushMethod(int *isOk)
 {
     printf("-- TEST PUSH METHOD --\n\n");
 
@@ -62,18 +65,18 @@ void testPushMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     *isOk = IS_OK;
 
     printf("\tTest inserting 5 numbers in stack:\n");
-    insertNRandomNumberInStack(stack, 5, indexOfTheStack, isOk);
+    insertNRandomNumberInStack(stack, 5, isOk);
     printResultOfTest(isOk);
 
     removeAllValueFromTheStack(indexOfTheStack);
     *isOk = IS_OK;
 
     printf("\tTest inserting 101 numbers in stack when Max amount of elements is 100:\n");
-    insertNRandomNumberInStack(stack, 101, indexOfTheStack, isOk);
+    insertNRandomNumberInStack(stack, 101, isOk);
     printResultOfTest(isOk);
 }
 
-void testPopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPopMethod(int *isOk)
 {
     int retVal;
 
@@ -97,7 +100,7 @@ void testPopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testGetMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testGetMethod(int *isOk)
 {
     int retVal;
 
@@ -121,7 +124,7 @@ void testGetMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testTopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testTopMethod(int *isOk)
 {
     printf("-- TEST TOP METHOD --\n\n");
 
@@ -159,7 +162,7 @@ void testMaxMethod(int *isOk)
     printResultOfTest(isOk);
 }
 
-void testPushNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPushNMethod(int *isOk)
 {
     printf("-- TEST PUSH WITH INDEX METHOD --\n\n");
 
@@ -181,7 +184,7 @@ void testPushNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk
     printResultOfTest(isOk);
 }
 
-void testPopNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPopNMethod(int *isOk)
 {
     int retVal;
     int index = 3;
@@ -206,7 +209,7 @@ void testPopNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testGetNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testGetNMethod(int *isOk)
 {
     int retVal;
     int index = 7;
