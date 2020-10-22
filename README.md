@@ -6,6 +6,6 @@
 ```bash
 git clone
 cd interpreter-forth
-./main #to run main program
-./unit_tests_main #to run all the units_tests
+sh play_interpreter.sh #to run main program
+sh units_tests_interpreter.sh #to run all the units_tests
 ```
