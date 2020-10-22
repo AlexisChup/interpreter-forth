@@ -8,7 +8,7 @@
 
 int main(void)
 {
-    int stack[MAX_PILE_D];
+    long int stack[MAX_PILE_D];
     int indexOfTheStack;
 
     initStack(stack);

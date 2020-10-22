@@ -2,14 +2,14 @@
 #include "stack_manipulation.h"
 #include "displaying.h"
 
-int stack[MAX_PILE_D];
+long int stack[MAX_PILE_D];
 int indexOfTheStack = 0;
 
 void initStack()
 {
     for (int index = 0; index < MAX_PILE_D; index++)
     {
-        stack[index] = 0;
+        stack[index] = NULL_INT;
     }
 }
 
@@ -38,8 +38,8 @@ int Pop(long int *val)
 {
     if(indexOfTheStack > 0)
     {
+        Get(val);
         indexOfTheStack -= 1;
-        *val = stack[indexOfTheStack];
 
         return 0;
     } else 
@@ -139,5 +139,5 @@ int GetN(long int *val, unsigned int index)
 
 void DisplayStack()
 {
-    display_stack(stack, indexOfTheStack);
+    display_stack(indexOfTheStack);
 }

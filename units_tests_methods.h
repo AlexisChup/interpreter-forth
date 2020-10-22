@@ -12,17 +12,17 @@ void printReturnedValue(int retVal);
 /*
     *used to insert X random number in the stack for tests
 */
-int insertNRandomNumberInStack(int stack[MAX_PILE_D], unsigned int numberOfRandomNumber, int *indexOfTheStack, int *isOk);
+int insertNRandomNumberInStack(long int stack[MAX_PILE_D], unsigned int numberOfRandomNumber, int *indexOfTheStack, int *isOk);
 
-void testPushMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
-void testPopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
-void testGetMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testPushMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testPopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testGetMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
 
-void testTopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testTopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
 void testMaxMethod(int *isOk);
 
-void testPushNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
-void testPopNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
-void testGetNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testPushNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testPopNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
+void testGetNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk);
 
 #endif

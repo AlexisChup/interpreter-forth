@@ -31,7 +31,7 @@ void printReturnedValue(int retVal)
     
 }
 
-int insertNRandomNumberInStack(int stack[MAX_PILE_D], unsigned int numberOfRandomNumber, int *indexOfTheStack, int *isOk)
+int insertNRandomNumberInStack(long int stack[MAX_PILE_D], unsigned int numberOfRandomNumber, int *indexOfTheStack, int *isOk)
 {
     int pushValue;
     int returnValueFromPush;
@@ -54,7 +54,7 @@ int insertNRandomNumberInStack(int stack[MAX_PILE_D], unsigned int numberOfRando
     }
 }
 
-void testPushMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPushMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     printf("-- TEST PUSH METHOD --\n\n");
 
@@ -73,7 +73,7 @@ void testPushMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testPopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     int retVal;
 
@@ -97,7 +97,7 @@ void testPopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testGetMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testGetMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     int retVal;
 
@@ -121,7 +121,7 @@ void testGetMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testTopMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testTopMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     printf("-- TEST TOP METHOD --\n\n");
 
@@ -159,7 +159,7 @@ void testMaxMethod(int *isOk)
     printResultOfTest(isOk);
 }
 
-void testPushNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPushNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     printf("-- TEST PUSH WITH INDEX METHOD --\n\n");
 
@@ -181,7 +181,7 @@ void testPushNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testPopNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testPopNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     int retVal;
     int index = 3;
@@ -206,7 +206,7 @@ void testPopNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
     printResultOfTest(isOk);
 }
 
-void testGetNMethod(int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
+void testGetNMethod(long int stack[MAX_PILE_D], int *indexOfTheStack, int *isOk)
 {
     int retVal;
     int index = 7;

@@ -1,17 +1,31 @@
 #include "constants.h"
 #include "utils.h"
 #include "displaying.h"
+#include "stack_manipulation.h"
 
-void display_stack(int stack[MAX_PILE_D], int indexOfTheStack)
+void display_stack(int indexOfTheStack)
 {
-    // system("clear");
+    system("clear");
+    long int val;
+    long int ret;
 
-    printf("------------------------\n");
+    display_horizontale_separation();
     for (int row = indexOfTheStack -1; row > -1; row--)
     {
-        printf("|          %3d           |\t°%2d\n", stack[row],row);
-        printf("------------------------\n");
+        ret = GetN(&val, row);
+        display_cell(val, row);
     }
+}
+
+void display_horizontale_separation()
+{
+    printf("------------------------\n");
+}
+
+void display_cell(long int val, int row)
+{
+    printf("|          %3ld           |\t°%2d\n", val,row);
+    display_horizontale_separation();
 }
 
 void display_user_action()
