@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h> 
+#include <string.h>
 
 #include "constants.h"
 #include "displaying.h"
@@ -26,88 +27,71 @@ int main(void)
     while (isContinue == TRUE)
     {
         display_stack(stack, indexOfTheStack);
-
-        printf("\nValeur de retour : %d\n", retVal);
-        printf("\nIs ok ? : %d\n", isOk);
-        
+        display_return_value(retVal);
+        display_is_ok(isOk);
         display_user_action();
-        scanf("%c", &action);
 
-        emptyBuffer();
 
+        action = getUserAction();
         retVal = 0;
 
         switch (action)
         {
-        case 'u':
-            printf("\nWrite your number / operations: \n");
-            scanf("%d", &pushValue);
-            emptyBuffer();
+            case 'u':
+                pushValue = getUserNumber('n');
+                isOk = push(&pushValue, stack, &indexOfTheStack);
 
-            isOk = push(&pushValue, stack, &indexOfTheStack);
+                break;
 
-            break;
+            case 'o':
+                isOk = pop(stack, &indexOfTheStack, &retVal);
 
-        case 'o':
-            isOk = pop(stack, &indexOfTheStack, &retVal);
+                break;
 
-            break;
+            case 'g':
+                isOk = get(stack, &indexOfTheStack, &retVal);
 
-        case 'g':
-            isOk = get(stack, &indexOfTheStack, &retVal);
+                break;
 
-            break;
+            case 'U':
+                pushValue = getUserNumber('n');
+                index = getUserNumber('i');
+                isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
 
-        case 'U':
-            printf("\nWrite your number / operations: \n");
-            scanf("%d", &pushValue);
-            emptyBuffer();
+                break;
 
-            printf("\nWrite the index where write the number: \n");
-            scanf("%d", &index);
-            emptyBuffer();
+            case 'O':
+                index = getUserNumber('i');
+                isOk = popN(stack, &indexOfTheStack, &retVal, index);
 
-            isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
-            break;
+                break;
 
-        case 'O':
-            printf("\nWrite the index where remove the number: \n");
-            scanf("%d", &index);
-            emptyBuffer();
+            case 'G':
+                index = getUserNumber('i');
+                isOk = getN(stack, &indexOfTheStack, &retVal, index);
 
-            isOk = popN(stack, &indexOfTheStack, &retVal, index);
+                break;
+            
+            case 't':
+                isOk = IS_OK;
+                top(&indexOfTheStack, &retVal);
 
-            break;
+                break;
+            
+            case 'm':
+                isOk = IS_OK;
+                max(&retVal);
 
-        case 'G':
-            printf("\nWrite the index where get the number: \n");
-            scanf("%d", &index);
-            emptyBuffer();
+                break;
 
-            isOk = getN(stack, &indexOfTheStack, &retVal, index);
+            case 'q':
+                isContinue = FALSE;
+                isOk = IS_OK;
 
-            break;
-        
-        case 't':
-            isOk = IS_OK;
-            top(&indexOfTheStack, &retVal);
+                break;
 
-            break;
-        
-        case 'm':
-            isOk = IS_OK;
-            max(&retVal);
-
-            break;
-
-        case 'q':
-            isContinue = FALSE;
-            isOk = IS_OK;
-
-            break;
-
-        default:
-            break;
+            default:
+                break;
         }
     }
     

@@ -3,5 +3,7 @@
 
 
 void emptyBuffer();
+char getUserAction();
+int getUserNumber(char printfCategory);
 
 #endif // UTILS_H
