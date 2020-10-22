@@ -1,7 +1,11 @@
 #include "constants.h"
 #include "stack_manipulation.h"
+#include "displaying.h"
 
-void initStack(int stack[])
+int stack[MAX_PILE_D];
+int indexOfTheStack = 0;
+
+void initStack()
 {
     for (int index = 0; index < MAX_PILE_D; index++)
     {
@@ -9,17 +13,17 @@ void initStack(int stack[])
     }
 }
 
-void removeAllValueFromTheStack(int *indexOfTheStack)
+void removeAllValueFromTheStack()
 {
-    *indexOfTheStack = 0;
+    indexOfTheStack = 0;
 }
 
-int push(int *value, int stack[MAX_PILE_D], int *indexOfTheStack)
+int Push(long int val)
 {
-    if(*indexOfTheStack < MAX_PILE_D)
+    if(indexOfTheStack < MAX_PILE_D)
     {
-        stack[*indexOfTheStack] = *value;
-        *indexOfTheStack += 1;
+        stack[indexOfTheStack] = val;
+        indexOfTheStack += 1;
 
         return 0;
     } else 
@@ -30,61 +34,61 @@ int push(int *value, int stack[MAX_PILE_D], int *indexOfTheStack)
     }
 }
 
-int pop(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
+int Pop(long int *val)
 {
-    if(*indexOfTheStack > 0)
+    if(indexOfTheStack > 0)
     {
-        *indexOfTheStack -= 1;
-        *retVal = stack[*indexOfTheStack];
+        indexOfTheStack -= 1;
+        *val = stack[indexOfTheStack];
 
         return 0;
     } else 
     {
-        *retVal = NULL_INT;
+        *val = NULL_INT;
         printf("The Stack is empty !\n");
 
         return -1;
     }
 }
 
-int get(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal)
+int Get(long int *val)
 {
-    if(*indexOfTheStack > 0)
+    if(indexOfTheStack > 0)
     {
-        *retVal = stack[*indexOfTheStack -1];
+        *val = stack[indexOfTheStack -1];
 
         return 0;
     }
     else
     {
-        *retVal = NULL_INT;
+        *val = NULL_INT;
         printf("The Stack is empty !\n");
 
         return -1;
     }
 }
 
-unsigned int max(int *retVal)
+unsigned int Max()
 {
-    *retVal = MAX_PILE_D;
+    return MAX_PILE_D;
 }
 
-unsigned int top(int *indexOfTheStack, int *retVal)
+unsigned int Top()
 {
-    *retVal = *indexOfTheStack;
+    return indexOfTheStack;
 }
 
-int pushN(int *value, int stack[MAX_PILE_D], int *indexOfTheStack, unsigned int index)
+int PushN(long int val, unsigned int index)
 {
-    if(index <= *indexOfTheStack && *indexOfTheStack < MAX_PILE_D)
+    if(index <= indexOfTheStack && indexOfTheStack < MAX_PILE_D)
     {
-        for (unsigned int i = *indexOfTheStack ; i > index - 1; i--)
+        for (unsigned int i = indexOfTheStack ; i > index - 1; i--)
         {
             stack[i] = stack[i-1];
         }
         
-        stack[index] = *value;
-        *indexOfTheStack += 1;
+        stack[index] = val;
+        indexOfTheStack += 1;
 
         return 0;
     } else 
@@ -93,42 +97,47 @@ int pushN(int *value, int stack[MAX_PILE_D], int *indexOfTheStack, unsigned int 
     }
 }
 
-int popN(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal, unsigned int index)
+int PopN(long int *val, unsigned int index)
 {
-    if(index <= *indexOfTheStack && *indexOfTheStack > 0)
+    if(index <= indexOfTheStack && indexOfTheStack > 0)
     {
-        *retVal = stack[index];
+        *val = stack[index];
 
-        for (unsigned int i = index ; i < *indexOfTheStack; i++)
+        for (unsigned int i = index ; i < indexOfTheStack; i++)
         {
             stack[i] = stack[i+1];
         }
 
-        *indexOfTheStack -= 1;
+        indexOfTheStack -= 1;
 
         return 0;
     } else 
     {
-        *retVal = NULL_INT;
+        *val = NULL_INT;
         printf("The Stack is empty !\n");
         
         return -1;
     }
 }
 
-int getN(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal, unsigned int index)
+int GetN(long int *val, unsigned int index)
 {
-    if(index <= *indexOfTheStack && *indexOfTheStack > 0)
+    if(index <= indexOfTheStack && indexOfTheStack > 0)
     {
-        *retVal = stack[index];
+        *val = stack[index];
 
         return 0;
     }
     else
     {
-        *retVal = NULL_INT;
+        *val = NULL_INT;
         printf("The Stack is empty !\n");
         
         return -1;
     }
+}
+
+void DisplayStack()
+{
+    display_stack(stack, indexOfTheStack);
 }

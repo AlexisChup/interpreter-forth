@@ -12,21 +12,21 @@
 
 int main(void)
 {
-    int stack[MAX_PILE_D];
-    int indexOfTheStack = 0;
-
-    initStack(stack);
+    initStack();
 
     char action;
+
     int isContinue = TRUE;
     int isOk = IS_OK;
-    int pushValue;
-    int retVal = 0;
+
+    long int pushValue;
+    long int retVal = 0;
+
     unsigned int index;
 
     while (isContinue == TRUE)
     {
-        display_stack(stack, indexOfTheStack);
+        DisplayStack();
         display_return_value(retVal);
         display_is_ok(isOk);
         display_user_action();
@@ -39,48 +39,48 @@ int main(void)
         {
             case 'u':
                 pushValue = getUserNumber('n');
-                isOk = push(&pushValue, stack, &indexOfTheStack);
+                isOk = Push(pushValue);
 
                 break;
 
             case 'o':
-                isOk = pop(stack, &indexOfTheStack, &retVal);
+                isOk = Pop(&retVal);
 
                 break;
 
             case 'g':
-                isOk = get(stack, &indexOfTheStack, &retVal);
+                isOk = Get(&retVal);
 
                 break;
 
             case 'U':
                 pushValue = getUserNumber('n');
                 index = getUserNumber('i');
-                isOk = pushN(&pushValue, stack, &indexOfTheStack, index);
+                isOk = PushN(pushValue, index);
 
                 break;
 
             case 'O':
                 index = getUserNumber('i');
-                isOk = popN(stack, &indexOfTheStack, &retVal, index);
+                isOk = PopN(&retVal, index);
 
                 break;
 
             case 'G':
                 index = getUserNumber('i');
-                isOk = getN(stack, &indexOfTheStack, &retVal, index);
+                isOk = GetN(&retVal, index);
 
                 break;
             
             case 't':
                 isOk = IS_OK;
-                top(&indexOfTheStack, &retVal);
+                retVal = Top();
 
                 break;
             
             case 'm':
                 isOk = IS_OK;
-                max(&retVal);
+                retVal = Max();
 
                 break;
 

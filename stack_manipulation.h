@@ -2,19 +2,21 @@
 #define STACK_MANIPULATION_H
 
 
-void initStack(int stack[]);
+void initStack();
 
-void removeAllValueFromTheStack(int *indexOfTheStack);
+void removeAllValueFromTheStack();
 
-int push(int *value, int stack[MAX_PILE_D], int *indexOfTheStack);
-int pop(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal);
-int get(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal);
+int Push(long int val);
+int Pop(long int *val);
+int Get(long int *val);
 
-unsigned int max(int *retVal);
-unsigned int top(int *indexOfTheStack, int *retVal);
+unsigned int Max();
+unsigned int Top();
 
-int pushN(int *value, int stack[MAX_PILE_D], int *indexOfTheStack, unsigned int index);
-int popN(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal, unsigned int index);
-int getN(int stack[MAX_PILE_D], int *indexOfTheStack, int *retVal, unsigned int index);
+int PushN(long int val, unsigned int index);
+int PopN(long int *val, unsigned int index);
+int GetN(long int *val, unsigned int index);
+
+void DisplayStack();
 
 #endif
