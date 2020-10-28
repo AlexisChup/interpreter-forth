@@ -24,12 +24,12 @@ int Push(long int val)
         stack[indexOfTheStack] = val;
         indexOfTheStack += 1;
 
-        return 0;
+        return IS_OK;
     } else 
     {
         printf("Stack overflow !\n");
 
-        return -1;
+        return IS_NOT_OK;
     }
 }
 
@@ -40,13 +40,13 @@ int Pop(long int *val)
         Get(val);
         indexOfTheStack -= 1;
 
-        return 0;
+        return IS_OK;
     } else 
     {
         *val = NULL_VAR;
         printf("The Stack is empty !\n");
 
-        return -1;
+        return IS_NOT_OK;
     }
 }
 
@@ -56,14 +56,14 @@ int Get(long int *val)
     {
         *val = stack[indexOfTheStack -1];
 
-        return 0;
+        return IS_OK;
     }
     else
     {
         *val = NULL_VAR;
         printf("The Stack is empty !\n");
 
-        return -1;
+        return IS_NOT_OK;
     }
 }
 
@@ -89,10 +89,13 @@ int PushN(long int val, unsigned int index)
         stack[index] = val;
         indexOfTheStack += 1;
 
-        return 0;
+        return IS_OK;
     } else 
     {
-        return -1;
+        printf("You must insert a number with an index 0 =< %d =< %d\n", indexOfTheStack, indexOfTheStack+1);
+        printf("That's why %d isn't correct\n", index);
+
+        return IS_NOT_OK;
     }
 }
 
@@ -109,13 +112,13 @@ int PopN(long int *val, unsigned int index)
 
         indexOfTheStack -= 1;
 
-        return 0;
+        return IS_OK;
     } else 
     {
         *val = NULL_VAR;
-        printf("The Stack is empty !\n");
+        printf("There is no value in stack for index : %d\n", index);
         
-        return -1;
+        return IS_NOT_OK;
     }
 }
 
@@ -125,14 +128,14 @@ int GetN(long int *val, unsigned int index)
     {
         *val = stack[index];
 
-        return 0;
+        return IS_OK;
     }
     else
     {
         *val = NULL_VAR;
-        printf("The Stack is empty !\n");
+        printf("There is no value in stack for index : %d\n", index);
         
-        return -1;
+        return IS_NOT_OK;
     }
 }
 
