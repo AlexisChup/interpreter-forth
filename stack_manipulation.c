@@ -8,7 +8,7 @@ void initStack()
 
     for (int index = 0; index < MAX_PILE_D; index++)
     {
-        stack[index] = NULL_INT;
+        stack[index] = NULL_VAR;
     }
 }
 
@@ -43,7 +43,7 @@ int Pop(long int *val)
         return 0;
     } else 
     {
-        *val = NULL_INT;
+        *val = NULL_VAR;
         printf("The Stack is empty !\n");
 
         return -1;
@@ -60,7 +60,7 @@ int Get(long int *val)
     }
     else
     {
-        *val = NULL_INT;
+        *val = NULL_VAR;
         printf("The Stack is empty !\n");
 
         return -1;
@@ -112,7 +112,7 @@ int PopN(long int *val, unsigned int index)
         return 0;
     } else 
     {
-        *val = NULL_INT;
+        *val = NULL_VAR;
         printf("The Stack is empty !\n");
         
         return -1;
@@ -129,7 +129,7 @@ int GetN(long int *val, unsigned int index)
     }
     else
     {
-        *val = NULL_INT;
+        *val = NULL_VAR;
         printf("The Stack is empty !\n");
         
         return -1;

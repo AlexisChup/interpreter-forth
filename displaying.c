@@ -35,7 +35,13 @@ void display_user_action()
 
 void display_return_value(int retVal)
 {
-    printf("\nValeur de retour : %d\n", retVal);
+    if(retVal != NULL_VAR)
+    {
+        printf("\nValeur de retour : %d\n", retVal);
+    } else 
+    {
+        printf("\nValeur de retour : NULL");
+    }
 }
 
 void display_is_ok(int isOk)

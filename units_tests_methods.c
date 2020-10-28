@@ -24,12 +24,12 @@ void printResultOfTest()
 
 void printReturnedValue(long int retVal)
 {
-    if(retVal == NULL_INT)
+    if(retVal == NULL_VAR)
     {
-        printf("\tx None value was returned\n");
+        printf("\t* None value was returned\n");
     } else
     {
-        printf("\tx Value returned: %ld\n", retVal);
+        printf("\t* Value returned: %ld\n", retVal);
     }
     
 }
@@ -136,7 +136,7 @@ void testTopMethod()
     isOk = IS_OK;
 
     printf("\tTest counting numbers when there are %d in stack:\n", numberOfElements);
-    Top(indexOfTheStack, &retVal);
+    retVal = Top();
     printReturnedValue(retVal);
     printResultOfTest();
 
@@ -144,7 +144,7 @@ void testTopMethod()
     isOk = IS_OK;
 
     printf("\tTest counting numbers when the stack is EMPTY:\n");
-    Top(indexOfTheStack, &retVal);
+    retVal = Top();
     printReturnedValue(retVal);
     printResultOfTest();  
 }
@@ -156,7 +156,7 @@ void testMaxMethod()
     printf("-- TEST MAX METHOD --\n\n");
 
     printf("Test getting the maximum amount of elements:\n");
-    Max(&retVal);
+    retVal = Max();
     isOk = IS_OK;
     printReturnedValue(retVal);
     printResultOfTest();

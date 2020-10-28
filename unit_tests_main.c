@@ -14,8 +14,8 @@ int main(void)
 
     printf("-------------------------------------\n\n");
     printf("-- FIRST AND SECOND PART UNIT TEST --\n\n");
-    printf("\t\t✓ and ❌\n");
-    printf("MEANS THAT TEST PASSED. THEY ONLY DISPLAY THE RESULT OF THE TEST.\n");
+    printf("\t✓\tMEANS THAT METHOD RETURN 0 FOR OK\n");
+    printf("\t❌\tMEANS THAT METHOD RETURN -1 FOR AN ERROR\n");
     printf("\n-------------------------------------\n\n");
     for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {

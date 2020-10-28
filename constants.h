@@ -9,6 +9,8 @@
 #define FALSE 0
 #define IS_OK 0
 #define IS_NOT_OK -1
-#define NULL_INT -999999999
+
+// Create a NULL_VAR var
+#define NULL_VAR -999999999
 
 #endif
