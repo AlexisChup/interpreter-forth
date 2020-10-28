@@ -8,18 +8,9 @@
 
 int main(void)
 {
-    long int stack[MAX_PILE_D];
-    int indexOfTheStack;
-
-    initStack(stack);
-
-    int isOk;
-    int pushValue;
-    int retVal;
-    unsigned int action;
-    unsigned int index;
-
     unsigned int numberOfMethodsToTest = 8;
+
+    initStack();
 
     printf("-------------------------------------\n\n");
     printf("-- FIRST AND SECOND PART UNIT TEST --\n\n");
@@ -28,48 +19,44 @@ int main(void)
     printf("\n-------------------------------------\n\n");
     for (unsigned int action = 0; action < numberOfMethodsToTest; action++)
     {
-        isOk = IS_OK;
-        retVal = 0;
-        indexOfTheStack = 0;
-
         switch (action)
         {
         case 0:
-            testPushMethod(stack, &indexOfTheStack, &isOk);
+            testPushMethod();
 
             break;
         case 1:
-            testPopMethod(stack, &indexOfTheStack, &isOk);
+            testPopMethod();
 
             break;
 
         case 2:
-            testGetMethod(stack, &indexOfTheStack, &isOk);
+            testGetMethod();
 
             break;
 
         case 3:
-            testPushNMethod(stack, &indexOfTheStack, &isOk);
+            testPushNMethod();
 
             break;
 
         case 4:
-            testPopNMethod(stack, &indexOfTheStack, &isOk);
+            testPopNMethod();
 
             break;
 
         case 5:
-            testGetNMethod(stack, &indexOfTheStack, &isOk);
+            testGetNMethod();
 
             break;
 
         case 6:
-            testTopMethod(stack, &indexOfTheStack, &isOk);
+            testTopMethod();
 
             break;
 
         case 7:
-            testMaxMethod(&isOk);
+            testMaxMethod();
 
             break;
 

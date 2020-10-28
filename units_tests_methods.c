@@ -8,12 +8,12 @@
 
 #include "displaying.h"
 
-long int stack[MAX_PILE_D];
-int indexOfTheStack = 0;
+// long int stack[MAX_PILE_D];
+// int indexOfTheStack = 0;
 
-void printResultOfTest(int *isOk)
+void printResultOfTest()
 {
-    if(*isOk == IS_OK)
+    if(isOk == IS_OK)
     {
         printf("\t\t✓\n\n");
     } else
@@ -22,21 +22,21 @@ void printResultOfTest(int *isOk)
     }
 }
 
-void printReturnedValue(int retVal)
+void printReturnedValue(long int retVal)
 {
     if(retVal == NULL_INT)
     {
         printf("\tx None value was returned\n");
     } else
     {
-        printf("\tx Value returned: %d\n", retVal);
+        printf("\tx Value returned: %ld\n", retVal);
     }
     
 }
 
-int insertNRandomNumberInStack(unsigned int numberOfRandomNumber, int *isOk)
+int insertNRandomNumberInStack(unsigned int numberOfRandomNumber)
 {
-    int pushValue;
+    long int pushValue;
     int returnValueFromPush;
     int newIsOk = 1;
     srand(time(NULL));   // Initialization, should only be called once.
@@ -51,185 +51,185 @@ int insertNRandomNumberInStack(unsigned int numberOfRandomNumber, int *isOk)
 
     if(newIsOk)
     {
-        *isOk = IS_OK;
+        isOk = IS_OK;
     } else {
-        *isOk = IS_NOT_OK;
+        isOk = IS_NOT_OK;
     }
 }
 
-void testPushMethod(int *isOk)
+void testPushMethod()
 {
     printf("-- TEST PUSH METHOD --\n\n");
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest inserting 5 numbers in stack:\n");
-    insertNRandomNumberInStack(stack, 5, isOk);
-    printResultOfTest(isOk);
+    insertNRandomNumberInStack(5);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest inserting 101 numbers in stack when Max amount of elements is 100:\n");
-    insertNRandomNumberInStack(stack, 101, isOk);
-    printResultOfTest(isOk);
+    insertNRandomNumberInStack(101);
+    printResultOfTest();
 }
 
-void testPopMethod(int *isOk)
+void testPopMethod()
 {
-    int retVal;
+    long int retVal;
 
     printf("-- TEST POP METHOD --\n\n");
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, 5, indexOfTheStack, isOk);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    insertNRandomNumberInStack(5);
+    isOk = IS_OK;
 
     printf("\tTest popping 1 number when stack is NOT EMPTY:\n");
-    *isOk = Pop(stack, indexOfTheStack, &retVal);
+    isOk = Pop(&retVal);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest popping 1 number when stack is EMPTY:\n");
-    *isOk = Pop(stack, indexOfTheStack, &retVal);
+    isOk = Pop(&retVal);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 }
 
-void testGetMethod(int *isOk)
+void testGetMethod()
 {
-    int retVal;
+    long int retVal;
 
     printf("-- TEST GET METHOD --\n\n");
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, 5, indexOfTheStack, isOk);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    insertNRandomNumberInStack(5);
+    isOk = IS_OK;
 
     printf("\tTest getting the last number when stack is NOT EMPTY:\n");
-    *isOk = Get(stack, indexOfTheStack, &retVal);
+    isOk = Get(&retVal);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest getting the last number when stack is EMPTY:\n");
-    *isOk = Get(stack, indexOfTheStack, &retVal);
+    isOk = Get(&retVal);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 }
 
-void testTopMethod(int *isOk)
+void testTopMethod()
 {
     printf("-- TEST TOP METHOD --\n\n");
 
-    int retVal;
+    long int retVal;
     int numberOfElements = 10;
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, numberOfElements, indexOfTheStack, isOk);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    insertNRandomNumberInStack(numberOfElements);
+    isOk = IS_OK;
 
     printf("\tTest counting numbers when there are %d in stack:\n", numberOfElements);
     Top(indexOfTheStack, &retVal);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest counting numbers when the stack is EMPTY:\n");
     Top(indexOfTheStack, &retVal);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);  
+    printResultOfTest();  
 }
 
-void testMaxMethod(int *isOk)
+void testMaxMethod()
 {
-    int retVal;
+    long int retVal;
 
     printf("-- TEST MAX METHOD --\n\n");
 
     printf("Test getting the maximum amount of elements:\n");
     Max(&retVal);
-    *isOk = IS_OK;
+    isOk = IS_OK;
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 }
 
-void testPushNMethod(int *isOk)
+void testPushNMethod()
 {
     printf("-- TEST PUSH WITH INDEX METHOD --\n\n");
 
-    int pushValue = 747;
+    long int pushValue = 747;
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, 10, indexOfTheStack, isOk);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    insertNRandomNumberInStack(10);
+    isOk = IS_OK;
 
     printf("\tTest inserting at index = 3, when there are numbers in stack:\n");
-    *isOk = PushN(&pushValue, stack, indexOfTheStack, 3);
-    printResultOfTest(isOk);
+    isOk = PushN(pushValue, 3);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest inserting at index = 3, when stack is EMPTY:\n");
-    *isOk = PushN(&pushValue, stack, indexOfTheStack, 3);
-    printResultOfTest(isOk);
+    isOk = PushN(pushValue, 3);
+    printResultOfTest();
 }
 
-void testPopNMethod(int *isOk)
+void testPopNMethod()
 {
-    int retVal;
+    long int retVal;
     int index = 3;
 
     printf("-- TEST POP WITH INDEX METHOD --\n\n");
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, 5, indexOfTheStack, isOk);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    insertNRandomNumberInStack(5);
+    isOk = IS_OK;
 
     printf("\tTest popping 1 number at index = 3, when stack is NOT EMPTY:\n");
-    *isOk = PopN(stack, indexOfTheStack, &retVal, index);
+    isOk = PopN(&retVal, index);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest popping 1 number at index = 3, when stack is EMPTY:\n");
-    *isOk = PopN(stack, indexOfTheStack, &retVal, index);
+    isOk = PopN(&retVal, index);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 }
 
-void testGetNMethod(int *isOk)
+void testGetNMethod()
 {
-    int retVal;
+    long int retVal;
     int index = 7;
 
     printf("-- TEST GET WITH INDEX METHOD --\n\n");
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    insertNRandomNumberInStack(stack, 10, indexOfTheStack, isOk);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    insertNRandomNumberInStack(10);
+    isOk = IS_OK;
 
     printf("\tTest getting number at index = %d when stack is NOT EMPTY:\n", index);
-    *isOk = GetN(stack, indexOfTheStack, &retVal, index);
+    isOk = GetN(&retVal, index);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 
-    removeAllValueFromTheStack(indexOfTheStack);
-    *isOk = IS_OK;
+    removeAllValueFromTheStack();
+    isOk = IS_OK;
 
     printf("\tTest getting number at index = %d when stack is EMPTY:\n", index);
-    *isOk = GetN(stack, indexOfTheStack, &retVal, index);
+    isOk = GetN(&retVal, index);
     printReturnedValue(retVal);
-    printResultOfTest(isOk);
+    printResultOfTest();
 }

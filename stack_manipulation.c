@@ -2,11 +2,10 @@
 #include "stack_manipulation.h"
 #include "displaying.h"
 
-long int stack[MAX_PILE_D];
-int indexOfTheStack = 0;
-
 void initStack()
 {
+    indexOfTheStack = 0;
+
     for (int index = 0; index < MAX_PILE_D; index++)
     {
         stack[index] = NULL_INT;

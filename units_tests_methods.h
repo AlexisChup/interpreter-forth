@@ -2,27 +2,28 @@
 #define TESTS_METHODS_H
 #include "constants.h"
 
+int isOk;
 
 /*
     *used to make more beautiful print in terminal
 */
-void printResultOfTest(int *isOk);
-void printReturnedValue(int retVal);
+void printResultOfTest();
+void printReturnedValue(long int retVal);
 
 /*
     *used to insert X random number in the stack for tests
 */
-int insertNRandomNumberInStack(unsigned int numberOfRandomNumber, int *isOk);
+int insertNRandomNumberInStack(unsigned int numberOfRandomNumber);
 
-void testPushMethod(int *isOk);
-void testPopMethod(int *isOk);
-void testGetMethod(int *isOk);
+void testPushMethod();
+void testPopMethod();
+void testGetMethod();
 
-void testTopMethod(int *isOk);
-void testMaxMethod(int *isOk);
+void testTopMethod();
+void testMaxMethod();
 
-void testPushNMethod(int *isOk);
-void testPopNMethod(int *isOk);
-void testGetNMethod(int *isOk);
+void testPushNMethod();
+void testPopNMethod();
+void testGetNMethod();
 
 #endif

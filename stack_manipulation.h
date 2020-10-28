@@ -2,6 +2,9 @@
 #define STACK_MANIPULATION_H
 
 
+long int stack[MAX_PILE_D];
+int indexOfTheStack;
+
 void initStack();
 
 void removeAllValueFromTheStack();
