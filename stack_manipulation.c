@@ -92,7 +92,7 @@ int PushN(long int val, unsigned int index)
         return IS_OK;
     } else 
     {
-        printf("You must insert a number with an index 0 =< %d =< %d\n", indexOfTheStack, indexOfTheStack+1);
+        printf("You must insert a number with an index :\n\t0 =< index =< %d\n", indexOfTheStack);
         printf("That's why %d isn't correct\n", index);
 
         return IS_NOT_OK;
@@ -101,7 +101,8 @@ int PushN(long int val, unsigned int index)
 
 int PopN(long int *val, unsigned int index)
 {
-    if(index <= indexOfTheStack && indexOfTheStack > 0)
+    printf("PopN index: %d, indexOfTheStack : %d, there is a problem here", index, indexOfTheStack);
+    if(index <= indexOfTheStack-1 && indexOfTheStack > 0)
     {
         *val = stack[index];
 

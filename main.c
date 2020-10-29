@@ -34,26 +34,32 @@ int main(void)
 
         action = getUserAction();
         retVal = 0;
+        system("clear");
+        DisplayStack();
 
         switch (action)
         {
             case 'u':
+                printf("Push method\n");
                 pushValue = getUserNumber('n');
                 isOk = Push(pushValue);
 
                 break;
 
             case 'o':
+                printf("Pop method\n");
                 isOk = Pop(&retVal);
 
                 break;
 
             case 'g':
+                printf("Get method\n");
                 isOk = Get(&retVal);
 
                 break;
 
             case 'U':
+                printf("Push with an index method\n");
                 pushValue = getUserNumber('n');
                 index = getUserNumber('i');
                 isOk = PushN(pushValue, index);
@@ -61,30 +67,35 @@ int main(void)
                 break;
 
             case 'O':
+                printf("Pop with an index method\n");
                 index = getUserNumber('i');
                 isOk = PopN(&retVal, index);
 
                 break;
 
             case 'G':
+                printf("Get with an index method\n");
                 index = getUserNumber('i');
                 isOk = GetN(&retVal, index);
 
                 break;
             
             case 't':
+                printf("Top method\n");
                 isOk = IS_OK;
                 retVal = Top();
 
                 break;
             
             case 'm':
+                printf("Max method\n");
                 isOk = IS_OK;
                 retVal = Max();
 
                 break;
 
             case 'q':
+                printf("Quit\n");
                 isContinue = FALSE;
                 isOk = IS_OK;
 

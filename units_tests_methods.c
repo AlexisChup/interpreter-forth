@@ -8,8 +8,6 @@
 
 #include "displaying.h"
 
-// long int stack[MAX_PILE_D];
-// int indexOfTheStack = 0;
 
 void printResultOfTest()
 {
@@ -30,15 +28,14 @@ void printReturnedValue(long int retVal)
     } else
     {
         printf("\t* Value returned: %ld\n", retVal);
-    }
-    
+    }   
 }
 
 int insertNRandomNumberInStack(unsigned int numberOfRandomNumber)
 {
     long int pushValue;
     int returnValueFromPush;
-    int newIsOk = 1;
+    int isOnlyIsOk = TRUE;
     srand(time(NULL));   // Initialization, should only be called once.
 
     for (unsigned index = 0; index < numberOfRandomNumber; index++)
@@ -46,14 +43,19 @@ int insertNRandomNumberInStack(unsigned int numberOfRandomNumber)
         pushValue = rand() / 100000;      // Returns a pseudo-random integer between 0 and RAND_MAX.
         returnValueFromPush = Push(pushValue);
 
-        newIsOk &= (returnValueFromPush == IS_OK) ? 1 : 0;
+        isOnlyIsOk &= (returnValueFromPush == IS_OK) ? TRUE : FALSE;
     }
 
-    if(newIsOk)
+    isOk = (isOnlyIsOk) ? IS_OK : IS_NOT_OK;
+}
+
+void updateNumberOfErrorAndIsOkAccordingToExpectedValue(int expectedValue)
+{
+    isOk = (isOk == expectedValue) ? IS_OK : IS_NOT_OK;
+
+    if(isOk == IS_NOT_OK)
     {
-        isOk = IS_OK;
-    } else {
-        isOk = IS_NOT_OK;
+        numberOfErrors++;
     }
 }
 
@@ -66,6 +68,10 @@ void testPushMethod()
 
     printf("\tTest inserting 5 numbers in stack:\n");
     insertNRandomNumberInStack(5);
+
+    //isOk should be IS_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_OK); 
+
     printResultOfTest();
 
     removeAllValueFromTheStack();
@@ -73,6 +79,10 @@ void testPushMethod()
 
     printf("\tTest inserting 101 numbers in stack when Max amount of elements is 100:\n");
     insertNRandomNumberInStack(101);
+
+    //isOk should be IS_NOT_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_NOT_OK); 
+
     printResultOfTest();
 }
 
@@ -88,6 +98,10 @@ void testPopMethod()
 
     printf("\tTest popping 1 number when stack is NOT EMPTY:\n");
     isOk = Pop(&retVal);
+
+    //isOk should be IS_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_OK); 
+
     printReturnedValue(retVal);
     printResultOfTest();
 
@@ -96,6 +110,10 @@ void testPopMethod()
 
     printf("\tTest popping 1 number when stack is EMPTY:\n");
     isOk = Pop(&retVal);
+
+    // isOk should be IS_NOT_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_NOT_OK);
+
     printReturnedValue(retVal);
     printResultOfTest();
 }
@@ -112,6 +130,10 @@ void testGetMethod()
 
     printf("\tTest getting the last number when stack is NOT EMPTY:\n");
     isOk = Get(&retVal);
+
+    //isOk should be IS_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_OK); 
+
     printReturnedValue(retVal);
     printResultOfTest();
 
@@ -120,6 +142,10 @@ void testGetMethod()
 
     printf("\tTest getting the last number when stack is EMPTY:\n");
     isOk = Get(&retVal);
+
+    //isOk should be IS_NOT_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_NOT_OK); 
+
     printReturnedValue(retVal);
     printResultOfTest();
 }
@@ -174,6 +200,10 @@ void testPushNMethod()
 
     printf("\tTest inserting at index = 3, when there are numbers in stack:\n");
     isOk = PushN(pushValue, 3);
+
+    //isOk should be IS_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_OK); 
+
     printResultOfTest();
 
     removeAllValueFromTheStack();
@@ -181,6 +211,10 @@ void testPushNMethod()
 
     printf("\tTest inserting at index = 3, when stack is EMPTY:\n");
     isOk = PushN(pushValue, 3);
+
+    //isOk should be IS_NOT_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_NOT_OK); 
+
     printResultOfTest();
 }
 
@@ -197,6 +231,10 @@ void testPopNMethod()
 
     printf("\tTest popping 1 number at index = 3, when stack is NOT EMPTY:\n");
     isOk = PopN(&retVal, index);
+
+    //isOk should be IS_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_OK);
+
     printReturnedValue(retVal);
     printResultOfTest();
 
@@ -205,6 +243,10 @@ void testPopNMethod()
 
     printf("\tTest popping 1 number at index = 3, when stack is EMPTY:\n");
     isOk = PopN(&retVal, index);
+
+    //isOk should be IS_NOT_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_NOT_OK); 
+
     printReturnedValue(retVal);
     printResultOfTest();
 }
@@ -222,6 +264,10 @@ void testGetNMethod()
 
     printf("\tTest getting number at index = %d when stack is NOT EMPTY:\n", index);
     isOk = GetN(&retVal, index);
+
+    //isOk should be IS_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_OK); 
+
     printReturnedValue(retVal);
     printResultOfTest();
 
@@ -230,6 +276,10 @@ void testGetNMethod()
 
     printf("\tTest getting number at index = %d when stack is EMPTY:\n", index);
     isOk = GetN(&retVal, index);
+
+    //isOk should be IS_NOT_OK
+    updateNumberOfErrorAndIsOkAccordingToExpectedValue(IS_NOT_OK); 
+
     printReturnedValue(retVal);
     printResultOfTest();
 }

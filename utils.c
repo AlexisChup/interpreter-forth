@@ -24,7 +24,7 @@ int getUserNumber(char printfCategory)
         printf("\nWrite your number / operations: \n");
     } else if (printfCategory == 'i')
     {
-        printf("\nWrite the index where write the number: \n");
+        printf("\nWrite the index: \n");
     }
     
     scanf("%d", &number);

@@ -9,6 +9,7 @@
 int main(void)
 {
     unsigned int numberOfMethodsToTest = 8;
+    // numberOfErrors = 0;
 
     initStack();
 
@@ -65,6 +66,13 @@ int main(void)
         }
     }
 
-    printf("\t\t✓✓  ALL TESTS PASSED  ✓✓\n\n");
+    if(numberOfErrors > 0)
+    {
+        printf("\t\t❌❌ ALL TESTS NOT PASSED ❌❌\n");
+        printf("Number of errors : %d\n", numberOfErrors);
+    } else 
+    {
+        printf("\t\t✓✓  ALL TESTS PASSED  ✓✓\n\n");
+    }
 }
     

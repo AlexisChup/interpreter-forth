@@ -5,7 +5,7 @@
 
 void display_stack(int indexOfTheStack)
 {
-    system("clear");
+    // system("clear");
     long int val;
     long int ret;
 

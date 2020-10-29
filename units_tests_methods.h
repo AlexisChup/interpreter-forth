@@ -3,6 +3,7 @@
 #include "constants.h"
 
 int isOk;
+unsigned int numberOfErrors;
 
 /*
     *used to make more beautiful print in terminal
@@ -14,6 +15,8 @@ void printReturnedValue(long int retVal);
     *used to insert X random number in the stack for tests
 */
 int insertNRandomNumberInStack(unsigned int numberOfRandomNumber);
+
+void updateNumberOfErrorAndIsOkAccordingToExpectedValue(int expectedValue);
 
 void testPushMethod();
 void testPopMethod();
