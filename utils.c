@@ -1,8 +1,14 @@
 #include "constants.h"
 #include "utils.h"
 
-void emptyBuffer(){
+void emptyBuffer()
+{
     while ((getchar()) != '\n');
+}
+
+void clearConsole()
+{
+    system("clear");
 }
 
 char getUserAction()

@@ -3,6 +3,7 @@
 
 
 void emptyBuffer();
+void clearConsole();
 char getUserAction();
 int getUserNumber(char printfCategory);
 

@@ -20,9 +20,10 @@ int main(void)
     int isOk = IS_OK;
 
     long int pushValue;
-    long int retVal = 0;
+    long int retVal = NULL_VAR;
 
     unsigned int index;
+    clearConsole();
 
     while (isContinue == TRUE)
     {
@@ -34,7 +35,7 @@ int main(void)
 
         action = getUserAction();
         retVal = 0;
-        system("clear");
+        clearConsole();
         DisplayStack();
 
         switch (action)
@@ -102,6 +103,12 @@ int main(void)
                 break;
 
             default:
+                display_error_message();
+                printf("You need to type letter in the list\n");
+
+                isOk = IS_NOT_OK;
+                retVal = NULL_VAR;
+
                 break;
         }
     }

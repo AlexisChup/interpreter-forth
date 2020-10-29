@@ -27,6 +27,7 @@ int Push(long int val)
         return IS_OK;
     } else 
     {
+        display_error_message();
         printf("Stack overflow !\n");
 
         return IS_NOT_OK;
@@ -44,6 +45,7 @@ int Pop(long int *val)
     } else 
     {
         *val = NULL_VAR;
+        display_error_message();
         printf("The Stack is empty !\n");
 
         return IS_NOT_OK;
@@ -101,7 +103,6 @@ int PushN(long int val, unsigned int index)
 
 int PopN(long int *val, unsigned int index)
 {
-    printf("PopN index: %d, indexOfTheStack : %d, there is a problem here", index, indexOfTheStack);
     if(index <= indexOfTheStack-1 && indexOfTheStack > 0)
     {
         *val = stack[index];

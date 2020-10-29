@@ -5,26 +5,34 @@
 
 void display_stack(int indexOfTheStack)
 {
-    // system("clear");
     long int val;
     long int ret;
 
-    display_horizontale_separation();
-    for (int row = indexOfTheStack -1; row > -1; row--)
+    if(indexOfTheStack > 0)
     {
-        ret = GetN(&val, row);
-        display_cell(val, row);
+        display_horizontale_separation();
+        for (int row = indexOfTheStack -1; row > -1; row--)
+        {
+            ret = GetN(&val, row);
+            display_cell(val, row);
+        }
+
+        printf("\t\t\t\t│ Index n° │\n");
+    } else {
+        display_horizontale_separation();
+        printf("\tSTACK IS EMPTY\n");
+        display_horizontale_separation();
     }
 }
 
 void display_horizontale_separation()
 {
-    printf("------------------------\n");
+    printf("――――――――――――――――――――――――――\n");
 }
 
 void display_cell(long int val, int row)
 {
-    printf("|          %3ld           |\t°%2d\n", val,row);
+    printf("│          %3ld           │\t│     ° %d  │\n", val,row);
     display_horizontale_separation();
 }
 
@@ -47,4 +55,9 @@ void display_return_value(int retVal)
 void display_is_ok(int isOk)
 {
     printf("\nIs ok ? : %d\n", isOk);    
+}
+
+void display_error_message()
+{
+    printf("❌\tERROR :");
 }
